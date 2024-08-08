@@ -26,7 +26,7 @@ function get_gemini_recommendations(data)
     else
         recommendations = println(
             "recommendations" => [
-                "Mentain your insulin dosage (if any)",
+                "Mantain your insulin dosage (if any)",
                 "Current level of physical activity is satisfactory",
                 "Blood sugar levels are satisfactory."]
         )
