@@ -9,29 +9,33 @@ using Dates
 const DATA_FILE = "patient_data.txt" # Rename this file according as per your choice
 
 function get_gemini_recommendations(data)
-    # Mock implementation of a response from the Gemini API
-    recommendations = Dict(
-        
-        if blood_sugar > 110
-         "recommendations" => [
-            "Adjust your insulin dosage.",
-            "Increase physical activity.",
-            "Monitor your blood sugar levels more frequently."
-         ],
-         "consult_advice" => "Based on the data, the patient should consult a doctor.",
-         "data_trend" => "The patient's blood sugar levels have been consistently high over the last few measurements.",
-         "health_risks" => "The patient is at risk of developing cardiovascular diseases due to high blood sugar levels."
-        else
+    blood_sugar = data["blood_sugar"]
+    if blood_sugar > 140
+        recommendations = println(
             "recommendations" => [
-            "Mentain your insulin dosage (if any)",
-            "Current level of physical activity is satisfactory",
-            "Blood sugar levels are satisfactory."
-         ],
-         "consult_advice" => "Based on the data, the patient may optionally consult a doctor as of now.",
-         "data_trend" => "The patient's blood sugar levels are within healthy range.",
-         "health_risks" => "The patient's risk of developing cardiovascular diseases is low."
-        end
-    )
+                "Adjust your insulin dosage.",
+                "Increase physical activity.",
+                "Monitor your blood sugar levels more frequently."
+            ])
+            println(
+            "consult_advice" => "Based on the data, the patient should consult a doctor.")
+            println(
+            "data_trend" => "The patient's blood sugar levels have been consistently high over the last few measurements.")
+            println(
+            "health_risks" => "The patient is at risk of developing cardiovascular diseases due to high blood sugar levels.")
+        
+    else
+        recommendations = println(
+            "recommendations" => [
+                "Mentain your insulin dosage (if any)",
+                "Current level of physical activity is satisfactory",
+                "Blood sugar levels are satisfactory."]
+        )
+            println("consult_advice" => "Based on the data, consultation with a doctor is optional.")
+            println("data_trend" => "The patient's blood sugar levels are within healthy range.")
+            println("health_risks" => "The patient's risk of developing cardiovascular diseases is low.")
+        
+    end
     return recommendations
 end
 
