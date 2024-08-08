@@ -12,7 +12,7 @@ function get_gemini_recommendations(data)
     # Mock implementation of a response from the Gemini API
     recommendations = Dict(
         
-        if blood_sugar > 140
+        if blood_sugar > 110
          "recommendations" => [
             "Adjust your insulin dosage.",
             "Increase physical activity.",
